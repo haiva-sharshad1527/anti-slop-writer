@@ -4,3 +4,7 @@ __pycache__/
 *.swp
 *.swo
 *~
+
+# Obsidian & Local Wiki ignores
+wiki/.obsidian/
+wiki/graphify-out/
