@@ -9,7 +9,7 @@ metadata:
   hermes:
     tags: [writing, editing, anti-slop, humanize, voice, prose, text]
     category: creative
-    related_skills: [humanizer, songwriting-and-ai-music]
+    related_skills: [songwriting-and-ai-music]
 ---
 
 # Anti-Slop Writer
