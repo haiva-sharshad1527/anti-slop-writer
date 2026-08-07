@@ -1,7 +1,7 @@
 ---
 name: anti-slop-writer
-description: "Strip AI tells from prose and replace them with real voice. Merges 40+ patterns from stop-slop, humanizer, and updated research into one scoring-and-rewrite system."
-version: 1.0.0
+description: "Strip AI tells from prose and replace them with real voice. Merges 40+ surface patterns with StoryScope narrative-structure tells (plot shape, temporal complexity, ambiguity) into a scoring-and-rewrite system."
+version: 1.1.0
 author: Merged from hardikpandya/stop-slop, blader/humanizer + Forbes 2026 research
 license: MIT
 platforms: [linux, macos, windows]
@@ -27,6 +27,13 @@ Plus **2026 updated patterns** from Forbes (Jodie Cook, Feb 2026) and Olivia Cal
 
 Most of what looks AI-generated is not one thing. It's the same handful of tics compounding. This skill catches them all in one pass.
 
+There are **two layers** to AI tells:
+
+1. **Surface layer** — words, phrases, punctuation, rhythm (the sentence-level tells below).
+2. **Narrative layer** — how the *story* is built: plot shape, temporal complexity, ambiguity, how meaning is revealed (Category 7 below).
+
+Research on AI fiction (StoryScope, UMD + Google DeepMind, 2026) found that detecting AI work by **narrative structure alone** matches 97% of a model that also uses style. That means edit-it phrase-level slop away all you want; if the underlying story is still tidy, over-explained, single-track AI, it still reads as AI. This skill is now, so it catches and fixes both.
+
 ## When to use this skill
 
 - You wrote something with AI assistance and need to strip the tells before publishing
@@ -34,15 +41,17 @@ Most of what looks AI-generated is not one thing. It's the same handful of tics 
 - You read back your own AI-assisted writing and it sounds like a press release
 - You want to calibrate output to match your personal writing voice
 - You need a score to decide if prose is ready to publish
+- A piece "passes" a surface check but still reads machine-made (structure problem)
 
-## The Approach: Spot, Score, Rewrite, Audit
+## The Approach: Spot, Score, Restructure, Rewrite, Audit
 
-This skill runs a four-phase process:
+This skill runs a five-phase process:
 
-1. **SPOT** — Scan text for all 40+ AI patterns below
-2. **SCORE** — Rate it on the 5-dimension scoring rubric. Below 35/50 = needs revision
-3. **REWRITE** — Remove every AI-ism. Add voice (opinions, rhythm, specificity)
-4. **AUDIT** — Ask "What makes this still obviously AI-generated?" Then revise again
+1. **SPOT (two pass)** — Surface pass scans the 40+ surface patterns; Structure pass scans the 9 narrative tells (Category 7).
+2. **SCORE** — Rate on the 6-dimension scoring rubric. Below the threshold = needs revision.
+3. **RESTRUCTURE (only for narrative tells)** — Attack story-shape issues before touching sentences.
+4. **REWRITE** — Remove every AI-ism. Add voice (opinions, rhythm, specificity).
+5. **AUDIT** — Ask "What makes this still obviously AI-generated?" Then revise again.
 
 ---
 
@@ -410,9 +419,81 @@ Removing bad patterns is only half the job. Sterile, voiceless writing is as obv
 
 ---
 
+### Category 7: Narrative & Structural Tells (StoryScope layer)
+
+> StoryScope (UMD + Google DeepMind, 2026) analyzed 61,608 stories: 10,272 writing prompts, each written by a human and by five LLMs. Narrative-structure features alone hit **93.2% macro-F1** detecting human vs AI, holding 97% of the signal that style+structure combined reach. A compact set of **30 core features** carries most of it. The tells below are those core signals. They live in the *shape* of the story, so each one needs the whole piece to evaluate, not a single paragraph.
+
+**7.1 Theme Over-Explained (AI 77% vs human 52%)**
+
+AI states the moral/theme outright. Human ends leave the reader to do the work.
+
+- **Before:** After everything, Mira understood that love was never about possession, but about letting go.
+- **After:** Mira mailed the keys back. Then she had no idea what to do with herself.
+
+**7.2 Single-Track Plot / No Subplots (AI 79% no subplot vs human 57%)**
+
+One clean causal chain, every scene serves the single main line. Human stories allow an unresolved side-thread.
+
+- Fix: add one counter-story, a secondary concern that the main plot never fully resolves.
+
+**7.3 Tidy Causal Closure + Acceptance Endings (AI 69% protagonist-driven, 47% acceptance-ending vs 46%/27%)**
+
+AI wraps up. The conflict is resolved, the protagonist accepts their fate, and the meaning is digestible. Human endings are often shaggy, ambiguous, or unresolved.
+
+- Fix: don't resolve everything. Let one thread dangle. Let the last emotion be ambiguous, not settled.
+
+**7.4 Embodied Emotion / Environmental Mirroring (AI 81% vs human 38%)**
+
+AI conveys feeling through physical sensation and weather-as-mood ("her throat tightened," "the rain fell like the world's sadness"). Human naming is more direct.
+
+- *Before:* A cold wind wrapped the alley as Maya's throat tightened. The gray sky seemed to mourn with her.
+- *After:* Maya was afraid of what she'd find at number 14. She'd rehearsed the line for two blocks.
+- This is the "show don't tell" default. The AI tell is that it's *always* embodied, never named. Mix both; name the emotion sometimes.
+
+**7.5 Choices Too Morally Clean**
+
+AI protagonist choices are legibly right/wrong. Human wants morally ambiguous stakes where the good option isn't obviously good.
+
+- Fix: give the protagonist a choice with a real cost, where they might pick the worse option for understandable reasons.
+
+**7.6 No Temporal Complexity (flashbacks, time-jumps, achronology)**
+
+AI runs linear chronology. Human disrupts time.
+
+- Fix: start in the middle, flash back, shift tense, withhold the cause until late. Not every story needs this, but the AI default is one straight line.
+
+**7.7 Vague Allusions / No Outside World (specificity AI 24% vs human 47%)**
+
+AI gestures broadly ("the old ways"). Humans name real texts, authors, streets, objects.
+
+- *Before:* "She had read all the important novels."
+- *After:* "She kept Chesterton's *The Man Who Was Thursday* on her nightstand and had never finished it once."
+
+**7.8 Dialogue Does Philosophical Graffiti (AI 59% vs human 34%)**
+
+AI puts the thesis into character mouths; talkers debate the theme instead of pursuing their own agendas.
+
+- *Before:* "Don't you see, Asha? It's never been about the map. It's about the journey."
+- *After:* "Hand me the map," Asha said. "I'm not lost, I'm just slow."
+
+**7.9 Low Rarity / Too Blueprint-Clean**
+
+Human stories are rarer in feature-space: more unusual combinations, strange references, accidental detail, messiness. AI clusters in a crowded tidy center.
+
+- Fix: one odd, singular, unmotivated beat in the piece. A weird hobby, wrong turn, off-series word, a character who is specific in an un-need way.
+
+### How to fix narrative tells (RESTRUCTURE)
+
+1. Only use these on a whole piece (or whole scene/arc), not a one-sentence snippet.
+2. Fix structure first, then surface. A tidy story with clean sentences still reads AI.
+3. The **no-fabrication rule still applies**: bring a subplot, flashback, named work, or ambiguous turn from the *author's* material, or write around it in first-person sentiment — never invent facts the source doesn't support. In fiction that the author owns, adding a beat is fine; in non-fiction, do not invent events or citations.
+4. You don't need all nine. Select the 2-4 that the piece is worst at. Over-fracturing kills readability.
+
+---
+
 ## SCORING SYSTEM
 
-Rate the text 1-10 on each dimension. Below 35/50 = revise before publishing.
+Rate the text 1-10 on each of six dimensions. Total out of 60. Below 42/60 = needs revision before publishing.
 
 | Dimension | What it measures | Score 1-3 | Score 8-10 |
 |-----------|-----------------|-----------|------------|
@@ -421,12 +502,13 @@ Rate the text 1-10 on each dimension. Below 35/50 = revise before publishing.
 | **Trust** | Respects reader intelligence? | Hedging, hand-holding, telling reader how to feel | Assumes reader follows |
 | **Authenticity** | Sounds human? | Perfect structure, no emotion, no mess | Has opinions, specificity, loose edges |
 | **Density** | Anything cuttable? | Filler, safe truths, repetition in every paragraph | Every sentence earns its place |
+| **Narrative Depth** | How human is the story's shape? | Tidy single track, theme over-explained, linear time, clean moral, low rarity | Subplot/Temporal looseness, ambiguity, specific references, some structural surprise |
 
-**Interpretation:**
-- **45-50:** Publish-ready
-- **35-44:** Needs light editing
-- **25-34:** Needs significant rewrite
-- **Below 25:** Start over
+**Interpretation (out of 60):**
+- **54-60:** Publish-ready
+- **42-53:** Needs light editing
+- **30-41:** Needs significant rewrite
+- **Below 30:** Start over
 
 ---
 
@@ -450,13 +532,18 @@ Then match the rewrite to those patterns. Removing AI patterns is only half; swa
 ## REWRITE PROCESS
 
 ```
-Step 1: SPOT   — Scan for all 40+ patterns. Flag every instance.
-Step 2: SCORE  — Rate on 5 dimensions. If below 35/50, proceed.
-Step 3: REWRITE — Remove every flagged tell. Add voice, specificity, rhythm.
-Step 4: AUDIT   — Ask: "What makes this still obviously AI generated?"
-                 Answer with bullet points (remaining tells).
-Step 5: REVISE  — Target every surviving tell. Rewrite again.
-Step 6: VERIFY  — Re-score. If still below 35/50, repeat from Step 3.
+Step 1: SPOT (two pass)
+         Surface pass  — scan for the 40+ surface patterns (Categories 1-6). Flag each.
+         Structure pass — scan the 9 narrative tells (Category 7). Only assessable on a whole piece/arc.
+Step 2: SCORE  — rate on 6 dimensions. If below 42/60, proceed.
+Step 3: RESTRUCTURE — (only if structure tells present) attack story-shape first:
+         open a theme, add a subplot temp, un-wind an ending, add temporal looseness, name
+         something real, add one unmapped beat. Do this BEFORE any sentence-level edit.
+Step 4: REWRITE — remove every flagged surface tell. Add voice, specificity, rhythm.
+Step 5: AUDIT  — "What makes this still obviously machine-shaped?" Name surviving tells
+                  (surface AND structural). 
+Step 6: REVISE — target every surviving tell. Rewrite again.
+Step 7: VERIFY — re-score. If still below 42/60, loop from Step 3.
 ```
 
 ### No-Fabrication Rule
@@ -485,8 +572,10 @@ See `references/examples.md` for full before/after transformations.
 1. **Over-rewriting to the point of blandness.** Fixing AI tells by making everything flat and generic is not improvement. Add voice alongside removal.
 2. **False positives on intentional style.** Some writers use em dashes deliberately. If someone has a calibrated voice that uses them, make a case-by-case call — but for AI-generated default text, kill them.
 3. **Hallucinating specifics during rewrite.** The no-fabrication rule is not optional. When the source lacks specifics, write "I disagree with this framing" rather than making up a counterargument.
-4. **Skipping the audit pass.** The second pass catches patterns the first rewrite misses. Do not skip it.
-5. **Scoring too generously.** Be harsh on the first pass. 35/50 is a pass for "needs editing" not "good."
+4. **Skipping the narrative pass.** Cleaning surface slop but leaving a tidy, over-explained, single-track story still reads as AI. Do both.
+5. **Over-structuring.** Applying all nine narrative fixes at once produces a fractured mess. Pick the 2-4 your piece is worst at.
+6. **Ranking structure before surface when there's no structure problem.** If the piece is genuinely narrative-rich and only the prose is sloppy, treat it as a surface-only run; don't invent subplots where the author didn't have them.
+7. **Scoring too generously.** Be harsh on the first pass. 42/60 is a pass for "needs editing" not "good."
 
 ---
 
@@ -505,7 +594,7 @@ bash install.sh --hermes       # Hermes Agent
 bash install.sh --claude-code  # Claude Code
 ```
 
-See the [README](README.md) for full instructions.
+---
 
 ## Upstream Tracking & Research
 
@@ -520,6 +609,8 @@ A Hermes cron job (`anti-slop-writer-research`) runs every Sunday and does real 
 Every discovery is cross-referenced against our 40+ existing patterns. Only genuinely new findings get reported. Nothing invented.
 
 When new patterns are found, you'll receive a Telegram report. Tell me to merge them and I update the skill.
+
+---
 
 ## License
 

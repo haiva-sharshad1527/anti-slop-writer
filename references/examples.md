@@ -76,4 +76,56 @@
 > Leadership is a journey. There's no one-size-fits-all approach. You're not alone in struggling with these challenges. And that's okay. The quiet truth is that every leader faces moments of doubt. Are you ready to go deeper? Authentic leadership requires vulnerability, self-awareness, and the courage to be imperfect.
 
 **After:**
-> I've been managing a team for three years and I still don't know what "authentic leadership" means in practice. The thing that helped was not a book or a framework. It was another manager telling me "I screw this up too" after a meeting where I tried too hard to sound like a leader instead of just talking to people. That was more useful than any of the training.
+> I've been managing a team for three years and I still don't know what "authentic leadership" means in practice. The thing that helped was not a book or a framework. It was another manager telling me "I screw this up too" after a meeting where I tried too hard to sound like a leader instead of just talking to people.
+
+---
+
+## Example 6: Narrative Layer — Tidy AI Story to Human Shape
+
+This one is clean at sentence level but machine-shaped. The RESTRUCTURE pass fixes the shape, then the surface pass polishes.
+
+**Before (AI: theme over-explained + single track + embodied emotion + clean moral + linear + philosophical dialogue):**
+> As the final trader hit the station, Mei understood that belonging had never been about the place itself, but the people in it. She had grown up in this cramped corner of the city, her mother's noodle shop threading every memory. When it closed, the whole world felt wrong.
+>
+> "You know," said the old neighbor, "it was never about the shop. It was about the sense, the community."
+>
+> A quiet cold passed through her. She finally saw the truth. Some things you can't keep, but you can carry their light forward. She smiled, at peace at last. The city hummed its age-old song around her, and she understood, in that moment, what home really meant.
+
+**RESTRUCTURE (shape-first) notes:**
+- 7.1 theme too tidy → cut the direct "what it meant" line, leave the ending hanging.
+- 7.2 single-track → give a side-thread (a customer who left money owed).
+- 7.3 too-complete ending → don't resolve the sister; keep the sentimental ambiguity.
+- 7.4 embodied-mirroring ("cold passed through her," city song) → dump the weather-as-mood; name the actual feeling.
+- 7.8 philosophical dialogue → make the neighbor busy instead. purpose.
+- 7.7 bare world → name a real, specific, small thing.
+
+**After (RESTRUCTURE then surface):**
+> The last freight train left at 11:42. Noor timed it, the same way she always had, by watching the nose of it clear the water tower's shadow at the far end of the platform.
+>
+> The shop had closed six weeks ago. Nobody had talked about the money Raj owed on the ledger since the funeral — it was the kind of debt nobody bothered to collect. The neighbors kept bringing her spare keys to their storefronts because they didn't know what else to do.
+>
+> "You're going to eat with us," the ironmonger said. He didn't offer to help her find a job, and that was all he could do without making it a charity.
+>
+> She did not, at last, know how she felt, and for once she did not need anybody to explain it to her. The shop was gone. People were not the kind of thing that vanished with it. She pulled the ledger from her bag, opened to the first empty page, and started writing down the names of the people who'd borrowed when their daughters were sick.
+
+---
+
+## Example 7: Surface Slop Only (no structure needed)
+
+For a piece that's already structurally rich, the structure pass finds nothing to do; only surface applies. This sanity-checks the two-pass flow.
+
+**Before (surface slop, solid arc):**
+> Leveraging cutting-edge methodology, the protagonist's journey in today's world serves as a true testament to the power of procedural change. Still, not only does the character evolve, but he also embraces. The landscape of his growth is intricate, and—consistently across the narrative—he aligns with who he truly is.
+
+**Restructure verdict:** arc is already human (ambiguous finale, unresolved thread). **No narrative edits.** Proceed to surface rewrite only.
+
+**After (surface-only pass):**
+> He sought not simply a mark, but a way to stop running. At the meeting, he offered the bank's phone number from the letter, then let his hand rest on the table, waiting for her to push back.
+
+---
+
+## Summary of Changes (what to check)
+
+- Surface pass → check `phrases.md` categories 1-12 and SKILL.md categories 1-6.
+- Structure pass → check Category 7 (StoryScope layer) only on a whole piece.
+- Score 6 dims, out of 60, pass at 42.

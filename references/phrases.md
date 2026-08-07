@@ -57,3 +57,21 @@ If no one disagrees, cut it.
 | Curly quotes | Use straight quotes |
 | Emojis | Banned in prose |
 | Title Case in headings | Use sentence case |
+
+## 13. Narrative & Structural Tells (Category 7) — needs whole piece
+
+These are the StoryScope "shape of the story" tells. Reach for them when a piece is *clean at sentence level* but still reads machine-made. Each fix is structural, not a find-replace.
+
+| # | Tell | Surface "clean", but machine | Fix |
+|---|---|---|---|
+| 7.1 | Theme over-explained | "Mira understood love was about letting go." | Let the ending withhold the lesson. |
+| 7.2 | Single-track plot, no subplots | One clean causal line, everything serves the main thread | Add an unresolved side-thread. |
+| 7.3 | Tidy closure + acceptance endings | Everything resolves, warm conclusion | Dangle one thread; leave ambiguity. |
+| 7.4 | Embodied emotion / weather-mirroring | "Her throat tightened," rain mirrors sadness | Name the emotion directly sometimes. |
+| 7.5 | Morally clean choices | Protagonist's move is legibly right | Add a real cost / gray choice. |
+| 7.6 | No temporal complexity | Linear timeline only | Flashback, time-jump, withheld cause. |
+| 7.7 | Vague allusion, no outside world | Gestures at "the old ways" | Name a real text, place, object. |
+| 7.8 | Dialogue debates the theme | Characters philosophize in dialogue | Dialogue should pursue agendas. |
+| 7.9 | Low rarity / too blueprint-clean | No odd beat, everything is tidy | Add one unmotivated, specific detail. |
+
+**RESTRUCTURE rule:** fix story-shape before sentences. Pick only the 2-4 tells the piece is worst at. No-fabrication applies.
